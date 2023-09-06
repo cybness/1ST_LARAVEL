@@ -7,14 +7,25 @@
 </head>
 <body>
     <h1>FORMULARIO DE CONTACTO</h1>
-    <form action="" method="POST">
-        <label for="nombre"></label>
-        <input name="nombre" id="nombre"><br>
+    <form action="contacto" method="POST">
+
+        <h3>{{ $tipo }}</h3>
+
+
+
+        @csrf
+        <label for="correo">Correo</label><br>
+        <input type="email" 
+        name="correo" 
+        id="nombre"
+             
+        @if ($tipo == 'alumno')
+            value="@alumno.com"
+        @else
+            value="@gmail.com"
+        @endif
+        ><br>
         <textarea name="comentario"></textarea><br>
-        <select name="tipo">
-            <option value="Alumno">Alumno</option>
-            <option value="Empleado">Empleado</option>
-        </select>
         <input type="submit" value="Enviar">
 
     </form>

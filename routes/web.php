@@ -1,6 +1,8 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +19,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/contacto', function () {
-    return view('contacto');
+Route::get('/contacto/{tipo?}', function ($tipo = null) {
+    //dd($tipo);
+    //return view('contacto', compact('tipo'));
+    return view('contacto')->with(['tipo' => $tipo]);
+});
+
+Route::post('contacto', function() {
+    return "Hola laragon";
+});
+
+Route::post('contacto', function(Request $request) {
+    dd($request->all());
 });
 
