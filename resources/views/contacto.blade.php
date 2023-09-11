@@ -9,9 +9,17 @@
     <h1>FORMULARIO DE CONTACTO</h1>
     <form action="contacto" method="POST">
 
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+         @endif
+
         <h3>{{ $tipo }}</h3>
-
-
 
         @csrf
         <label for="correo">Correo</label><br>
